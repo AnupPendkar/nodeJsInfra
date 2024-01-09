@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1704714178670,
+      "tag": "0000_nappy_sentinels",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1704715304802,
+      "tag": "0001_shiny_micromacro",
+      "breakpoints": true
+    }
+  ]
+}
