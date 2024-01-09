@@ -1,4 +1,4 @@
-import { Express, Request, Response, NextFunction } from "express";
+import { Express, Request, Response, NextFunction } from 'express';
 
 function appMiddleware(req, res, next) {
   // Your middleware logic here
