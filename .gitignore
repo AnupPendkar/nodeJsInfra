@@ -1,8 +1,8 @@
 /node_modules
+/drizzle
 .env
 
 # SQL
-/drizzle
 
 # production
 /build

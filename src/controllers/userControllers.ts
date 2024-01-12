@@ -2,6 +2,7 @@ import { eq } from 'drizzle-orm';
 import { db } from '../config';
 import { users } from '../schema/schema';
 import { Request, Response, NextFunction } from 'express';
+import { isPropEmpty } from '../utils/utils';
 
 export async function userLogin(req: Request, res: Response, next: NextFunction) {
   try {
@@ -22,5 +23,42 @@ export async function userLogin(req: Request, res: Response, next: NextFunction)
     }
   } catch (error) {
     next(error);
+  }
+}
+
+export async function userRegister(req: Request, res: Response, next: NextFunction) {
+  try {
+    const { username, password, name, email, phone } = req.body;
+
+    const usernameExists = await db.select({ username: users.username }).from(users).where(eq(username, users.username));
+    if (!isPropEmpty(usernameExists)) {
+      res.status(422).json({ message: 'Username already taken!' });
+      return;
+    }
+
+    const emailExists = await db.select({ email: users.email }).from(users).where(eq(email, users.email));
+    if (!isPropEmpty(emailExists)) {
+      res.status(422).json({ message: 'Entered email already registered!' });
+      return;
+    }
+
+    const [newUser, ...rest] = await db.insert(users).values({ username, password, fullName: name, email, phoneNo: phone }).returning({
+      userId: users?.id,
+      name: users?.fullName,
+      email: users?.email,
+    });
+
+    if (newUser) {
+      res.json({ message: 'Registered successfully', newUser });
+    }
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function updateUserDetails(req: Request, res: Response, next: NextFunction) {
+  try {
+  } catch (err) {
+    next(err);
   }
 }

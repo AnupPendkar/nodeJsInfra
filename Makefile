@@ -11,6 +11,9 @@ run-migrations:
 migrate:
 	. ~/.nvm/nvm.sh && nvm use $(NODE_VERSION) && npm run migrate
 
+open-studio:
+	. ~/.nvm/nvm.sh && nvm use $(NODE_VERSION) && npm run studio
+
 install:
 	. ~/.nvm/nvm.sh && nvm use $(NODE_VERSION) && npm install
 

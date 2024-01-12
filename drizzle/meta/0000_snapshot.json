@@ -1,5 +1,5 @@
 {
-  "id": "c2ed134e-b864-4607-8296-f3a97f2ef517",
+  "id": "33754d95-32a7-439d-9435-d02e6346d31c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -18,10 +18,16 @@
           "name": "full_name",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "username": {
           "name": "username",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
           "type": "varchar(100)",
           "primaryKey": false,
           "notNull": false
@@ -30,19 +36,34 @@
           "name": "password",
           "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "phoneNo": {
           "name": "phoneNo",
           "type": "varchar(20)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        },
+        "users_phoneNo_unique": {
+          "name": "users_phoneNo_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "phoneNo"
+          ]
+        }
+      }
     }
   },
   "enums": {},
