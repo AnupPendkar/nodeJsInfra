@@ -1,6 +1,7 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const psConnection = postgres({
   host: process.env.DATABASE_HOST,

@@ -1,5 +1,5 @@
 {
-  "id": "3a97f6a1-fbc5-4391-af70-8b7b3724372d",
+  "id": "c2ed134e-b864-4607-8296-f3a97f2ef517",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -20,9 +20,21 @@
           "primaryKey": false,
           "notNull": false
         },
-        "phone": {
-          "name": "phone",
+        "username": {
+          "name": "username",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "password": {
+          "name": "password",
           "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phoneNo": {
+          "name": "phoneNo",
+          "type": "varchar(20)",
           "primaryKey": false,
           "notNull": false
         }

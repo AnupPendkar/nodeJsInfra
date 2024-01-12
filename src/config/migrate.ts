@@ -5,6 +5,7 @@ export default async function migrateSchema() {
   console.log('migrations started');
   await migrate(db, { migrationsFolder: 'drizzle' });
   await psConnection.end();
+  console.log('migrations completed');
   process.exit(0);
 }
 

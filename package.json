@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/server.ts",
-    "migrations": "drizzle-kit generate:pg",
+    "migrations": "drizzle-kit generate:pg --config drizzle.config.ts",
     "migrate": "tsx -r ./src/config/migrate.ts",
     "studio": "drizzle-kit studio --port 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,6 @@
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.29.3",
     "express": "^4.18.2",
-    "mysql2": "^3.6.5",
     "nodemon": "^3.0.2",
     "pg": "^8.11.3",
     "postgres": "^3.4.3",
