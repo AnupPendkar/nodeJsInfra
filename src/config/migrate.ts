@@ -3,7 +3,7 @@ import { migrate } from 'drizzle-orm/postgres-js/migrator';
 
 export default async function migrateSchema() {
   console.log('migrations started');
-  await migrate(db, { migrationsFolder: 'drizzle' });
+  await migrate(db, { migrationsFolder: 'migrations' });
   await psConnection.end();
   console.log('migrations completed');
   process.exit(0);

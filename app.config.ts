@@ -1,8 +1,14 @@
 import type { Config } from 'drizzle-kit';
 
+export const corsOptions = {
+  origin: '*', // replace with your client's origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // enable cookies and other credentials
+};
+
 export default {
   schema: './src/schema/*',
-  out: './drizzle',
+  out: './migrations',
   driver: 'pg', // 'pg' | 'mysql2' | 'better-sqlite' | 'libsql' | 'turso'
   dbCredentials: {
     host: process.env.DATABASE_HOST,
