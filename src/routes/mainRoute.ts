@@ -30,5 +30,10 @@ router.post('/create-post', createPost);
 router.put('/update-post', updatePost);
 router.delete('/delete-post', deletePost);
 
+// Scripts routes
+// router.get('/get_all_active_process', allActiveProcesses);
+// router.get('/start_script', startScript);
+// router.get('/stop_script', stopScript);
+// router.get('/get_all_transactions', allRailTransactions);
 
 export default router;
